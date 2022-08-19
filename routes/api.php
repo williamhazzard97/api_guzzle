@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\apiController;
 
 
-
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,4 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/usPopulation', [apiController::class, 'usPOP']);
+Route::get('/usPopulation', [apiController::class, 'usPop']);
+
+
+Route::get('/diff', [apiController::class, 'usPopDiff']);

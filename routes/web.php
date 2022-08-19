@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
+
+use App\Services\populationClass;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,14 @@ use Illuminate\Support\Facades\Http;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+App::bind('population', function() {
+    return new \App\Services\populationClass();
+});
+
+Route::get('/usPopulation', function(populationClass $populationClass) {
+    dd(resolve('population'));
+});
 
 Route::get('/', function () {
     return view('welcome');
